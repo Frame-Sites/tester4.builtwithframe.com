@@ -1,0 +1,59 @@
+name: deploy-production-branch
+on:
+  workflow_dispatch:
+    inputs:
+      GATSBY_API_KEY:
+        description: 'GATSBY_API_KEY'
+        required: false
+      GATSBY_API_ENDPOINT:
+        description: 'GATSBY_API_ENDPOINT'
+        required: false
+      GATSBY_HOMEPAGE:
+        description: 'GATSBY_HOMEPAGE'
+        required: false
+      GATSBY_ACCOUNT_ID:
+        description: 'GATSBY_ACCOUNT_ID'
+        required: false
+      AWS_ACCESS_KEY_ID:
+        description: 'AWS_ACCESS_KEY_ID'
+        required: false
+      AWS_SECRET_ACCESS_KEY:
+        description: 'AWS_SECRET_ACCESS_KEY'
+        required: false
+      CLOUDFRONT_ID:
+        description: 'CLOUDFRONT_ID'
+        required: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Build
+        env:
+          GATSBY_API_KEY: ${{ github.event.inputs.GATSBY_API_KEY }}
+          GATSBY_API_ENDPOINT: ${{ github.event.inputs.GATSBY_API_ENDPOINT }}
+          GATSBY_HOMEPAGE: ${{ github.event.inputs.GATSBY_HOMEPAGE }}
+          GATSBY_ACCOUNT_ID: ${{ github.event.inputs.GATSBY_ACCOUNT_ID }}
+        run: |
+          npm install -g yarn
+          yarn install --frozen-lockfile
+          GATSBY_API_KEY=$GATSBY_API_KEY GATSBY_API_ENDPOINT=$GATSBY_API_ENDPOINT GATSBY_HOMEPAGE=$GATSBY_HOMEPAGE GATSBY_ACCOUNT_ID=$GATSBY_ACCOUNT_ID yarn build
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ github.event.inputs.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ github.event.inputs.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+      - name: Deploy
+        uses: jonelantha/gatsby-s3-action@v1
+        with:
+          dest-s3-bucket: ${{ github.event.inputs.GATSBY_HOMEPAGE }}
+          cloudfront-id-to-invalidate: ${{ github.event.inputs.CLOUDFRONT_ID }}
+          public-source-path: ./out/
+

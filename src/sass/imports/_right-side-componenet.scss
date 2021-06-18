@@ -1,0 +1,78 @@
+.right-content-wrapper{
+    position: relative;
+    margin-top: 2.9rem;
+    h2{
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 44px;
+      padding-bottom: 20px;
+      position: relative;
+  
+      &::after{
+        content: '';
+        position: absolute;
+        height: 8px;
+        width: 4rem;
+        background-image: linear-gradient(270deg, $primary-color 0%, $primary-color-light 100%);
+        border-radius: 4px;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  
+    .profile-experience, .profile-leadership, .profile-education{
+      background-color: $detail-background-color;
+      margin-top: 40px;
+      border: $content-border;
+      border-radius: 8px;
+      padding: 11px 21px;
+  
+        p{
+          margin: 0 0 14px;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 22px;
+          // color: rgba(27, 36, 53, 0.7);
+        }
+  
+        .profile-experience-details, .profile-education-details, .profile-leadership-details{
+          padding-bottom: 14px;
+          border-bottom: 2px solid #242930;
+          margin-bottom: 30px;
+          p{
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 22px;
+            // color: #000000;
+            margin: 0;
+  
+            &:last-child{
+              font-weight: 300;
+            }
+          }
+  
+          &:last-child{
+            border-bottom: none;
+  
+            p{
+              margin-top: 0;
+            }
+          }
+  
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
+    }
+    @media(min-width:768px){
+      &::before{
+        content: '';
+        position: absolute;
+        height: 95%;
+        left: -80px;
+        top: 2rem;
+        width: 2px;
+        background: $divider-line;
+      }
+    }
+  }

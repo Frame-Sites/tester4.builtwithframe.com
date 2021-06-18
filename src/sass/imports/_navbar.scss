@@ -1,0 +1,178 @@
+.site-nav-wrap{
+    position: relative;
+    z-index: 2;
+    display: grid;
+    background-color: $background-color;
+    grid-template-columns: 1fr 2fr;
+    margin:0 4vw;
+    margin-top: 2rem;
+    align-items: center;
+    @media(max-width:768px) {
+        grid-template-columns: 2fr 1fr;
+        margin:1vw 1vw;
+    }
+}
+
+.nav-profile{
+    display: flex;
+    align-items: center;
+    .nav-profile-photo{
+        height: 4rem;
+        width: 4rem;
+        border-radius: 100%;
+        filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+        overflow: hidden;
+        img{
+            object-fit: contain;
+            width:100%;
+        }
+    }
+    .info{
+        margin-left: 20px;
+        p{
+            border:0;
+            margin:0;
+            &:first-child{
+                font-weight: 600;
+                font-size: medium;
+                margin-bottom: -10px;
+            }
+        }
+    }
+    .social-icons{
+        display: flex;
+        justify-content: flex-start;
+        a,span{
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          margin-right: 8px;
+          background-size: contain;
+
+          &:last-child{
+            margin-right: 0;
+          }
+        }
+        .facebook-icon{
+          background-image: url('/images/facebook.svg');
+        }
+        .twitter-icon{
+          background-image: url('/images/twitter.svg'); 
+        }
+        .linkedin-icon{
+          background-image: url('/images/linkedin.svg'); 
+        }
+        .github-icon{
+            background-image: url('/images/github.png');
+            filter: invert(1);
+        }
+        .medium-icon{
+            background-image: url('/images/medium-logo.svg');
+            background-size: contain;
+        }
+        .instagram-icon{
+            background-image: url('/images/instagram-logo.svg');
+            background-size: contain;
+        }
+        .issuu-icon{
+            background-image: url('/images/issuu-logo.svg');
+            background-size: contain;
+        }
+      }
+}
+
+.nav-icon{
+    display: flex;
+    align-items: center;
+}
+.nav-right{
+    ul{
+        display: flex;
+        justify-content: flex-end;
+        li{
+            list-style: none;
+            margin-left: 2rem;
+            text-align: center;
+            line-height: 2.3;
+            width: 8rem;
+            height: 2.4rem;
+            background-color: $nav-list-item-background;
+            box-shadow: $button-box-shadow;
+            border-radius: 8px;
+            font-weight: 600;
+            &:hover{
+                cursor: pointer;
+                background: $primary-color;
+                color: $background-color;
+                box-shadow: 0px 4px 20px $button-box-shadow;      
+            }
+        }
+        li.active{
+            background: $primary-color;
+            box-shadow: 0px 4px 20px $button-box-shadow;
+            border-radius: 8px;
+            color: $background-color;
+        }
+        a{
+            text-decoration: none;
+        }
+        @media(max-width:768px){
+            display: none;
+        }
+    }
+    @media(max-width:768px){
+        justify-content: flex-end;
+        display: flex;
+    }
+    .hamburger{
+        div{
+            width:32px;
+            border-radius: 20px;
+            margin-bottom: 2px;
+            height:5px;
+            background-color: $primary-color;
+            transition: all .500s ease-in-out;
+        }
+        @media(min-width:769px){
+            display: none;
+        }
+    }
+   
+}
+.nav-list-mobile{
+    margin: 0;
+    padding: 0;
+
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    background-color: $background-color;
+    height: 100vh;
+    // width: 100%;
+    z-index: 1;
+    margin-top: -100vh;
+    opacity:0;
+    ul {
+        padding: 20px;
+        margin: 0;
+        li {
+            list-style: none;
+            font-size: 20px;
+            padding-top: 28px;
+            border-bottom: 1px solid $divider-line;
+            cursor: pointer;
+            a {
+                color:black;
+                font-weight: 700;
+              }
+              &:hover,
+                &:focus {
+                    transform:scaleY(1.2)
+                }
+            }
+    }
+      @media(min-width:769px){
+        display: none;
+    }
+}
+
+

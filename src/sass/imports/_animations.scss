@@ -1,0 +1,13 @@
+.line-1.open{
+    transform: translateY(4px) rotate(45deg);
+}
+.line-3.open{
+    transform: translateY(-3px) rotate(-45deg);
+}
+.line-2.open{
+    display: none;
+}
+.nav-list-mobile.open{
+    margin-top:0;
+    opacity: 1;
+}

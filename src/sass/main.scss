@@ -1,0 +1,46 @@
+//light
+// $background-color           :#fff;
+// $font-color                 :rgba(0, 0, 0, 0.748);
+// $primary-color              :#0052FF;
+// $primary-color-light        :#00B2FF;
+// $content-border             :2px solid rgba(27, 36, 53, 0.2);
+// $divider-line               :rgba(27, 36, 53, 0.2);
+// $button-box-shadow          :0px 4px 20px rgba(0, 0, 0, 0.1);
+// $detail-background-color    :#fff;
+// $coursework-item-background :#f1f1f1;
+// $nav-list-item-background   :#fff;
+
+//dark
+$background-color           :#1b1f25;
+$font-color                 :#e5e5e5;
+$primary-color              :#798398;
+$primary-color-light        :#4F596C;
+$content-border             :2px solid #1b1f25;
+$divider-line               :#798398;
+$button-box-shadow          :0px 4px 20px rgba(0, 0, 0, 0.1);
+$detail-background-color    :#242930;
+$coursework-item-background :#63666b;
+$nav-list-item-background   :#373a3f;
+
+//classic
+//classic need more changes 
+
+// $background-color           :#f6f6f6;
+// $font-color                 :#1b2435;
+// $primary-color              :#4F596C;
+// $primary-color-light        :#C7C7C7;
+// $content-border             :2px solid #e5e5e5;
+// $divider-line               :#798398;
+// $buttom-box-shadow          :0px 4px 20px rgba(0, 0, 0, 0.1);
+// $detail-background-color    :#f6f6f6;
+// $coursework-item-background :#888c93;
+// $nav-list-item-background   :#fff;
+
+
+
+@import "imports/navbar";
+@import "imports/right-side-componenet";
+@import "imports/left-side-component";
+@import "imports/general";
+@import "imports/animations";
+@import "imports/articles";
